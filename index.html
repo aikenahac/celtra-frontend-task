@@ -10,9 +10,52 @@
 </head>
 
 <body>
-    <div class="title">
+    <div class="container">
         <h1>Celtra frontend task: Circular slider</h1>
+
+        <div id="slider"></div>
     </div>
+
+    <script type="text/javascript" src="Slider.js"></script>
+
+    <script>
+        const options = {
+            DOMselector: '#slider',
+            sliders: [
+                {
+                    radius: 100,
+                    min: 0,
+                    max: 100,
+                    step: 50,
+                    initialValue: 50,
+                    color: '#fdcb6e',
+                    displayName: 'Value 1'
+                },
+                {
+                    radius: 160,
+                    min: 0,
+                    max: 3000,
+                    step: 1500,
+                    initialValue: 1500,
+                    color: '#0984e3',
+                    displayName: 'Value 2'
+                },
+                {
+                    radius: 40,
+                    min: 0,
+                    max: 200,
+                    step: 10,
+                    initialValue: 20,
+                    color: '#d63031',
+                    displayName: 'Value 3'
+                }
+            ]
+        };
+
+        const slider = new Slider(options);
+        slider.draw();
+    </script>
+
 </body>
 
 </html>

@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.title {
+.container {
     padding: 5% 1.5rem;
     width: 100%;
     max-width: 900px;

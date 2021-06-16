@@ -10,3 +10,12 @@ body {
     width: 100%;
     max-width: 900px;
 }
+
+#slider {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sliders-names {
+    padding: 1rem 2.5rem 0 0;
+}

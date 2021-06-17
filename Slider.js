@@ -169,7 +169,7 @@ class Slider {
         let end;
         let arcSweep;
 
-        if (angleEndOrigin - angleStart === 360) angleEnd = 350;
+        if (angleEndOrigin - angleStart === 360) angleEnd = 359;
 
         start = this.polToCart(x, y, radius, angleEnd);
         end = this.polToCart(x, y, radius, angleStart);
@@ -196,12 +196,12 @@ class Slider {
     mouseAngleCalc(rmtc) {
         const angle = Math.atan2(rmtc.y - this.centerY, rmtc.x - this.centerX);
 
-        if (angle > -this.tau / 2 && angle < -this.tau / 4) return angle + this.tau * 1.25;
+        if (angle > - this.tau / 2 && angle < - this.tau / 4) return angle + this.tau * 1.25;
         else return angle + this.tau * 0.25;
     }
 
     radToDeg(angle) {
-        return angle / (Math.PI / 100);
+        return angle / (Math.PI / 180);
     }
 
     locateClosestSlider(rmtc) {

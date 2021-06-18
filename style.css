@@ -16,6 +16,17 @@ body {
     flex-wrap: wrap;
 }
 
-.sliders-names {
-    padding: 1rem 2.5rem 0 0;
+.data-display {
+    padding: 1rem 3rem 0 0;
+    list-style: none;
 }
+
+.data-display li {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.data-display li span {
+    display: inline-block;
+}
+

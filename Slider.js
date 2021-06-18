@@ -33,6 +33,8 @@ class Slider {
 
     draw() {
 
+        this.dataDisplayDraw();
+
         const containerSVG = document.createElement('div');
 
         containerSVG.classList.add('sliders');
@@ -61,7 +63,7 @@ class Slider {
 
         const circumference = slider.radius * this.tau;
 
-        const initialAngle = Math.floor((slider.initialValue / (slider.max - slider.min)) * 360);
+        const initialAngle = Math.floor((slider.value / (slider.max - slider.min)) * 360);
 
         const arcFractionSpacing = this.arcFractionsSpacingCalc(
             circumference,
@@ -149,6 +151,59 @@ class Slider {
 
         spot.setAttribute('cx', spotCenter.x);
         spot.setAttribute('cy', spotCenter.y);
+
+        this.dataDisplayUpdate(currentAngle);
+    }
+
+    dataDisplayDraw() {
+
+        const display =  document.createElement('ul');
+        display.classList.add('data-display');
+
+        const title = document.createElement('h2');
+        title.innerText = 'Slider values';
+
+        display.appendChild(title);
+
+        this.sliders.forEach((slider, index) => {
+            const item = document.createElement('li');
+            item.setAttribute('data-slider', index);
+
+            const leading = document.createElement('span');
+            leading.style.backgroundColor = slider.color ?? '#EDCDCE';
+            leading.classList.add('leading');
+
+            const sliderName = document.createElement('span');
+            sliderName.innerText = slider.sliderName ?? 'Unnamed slider';
+
+            const sliderValue = document.createElement('span');
+            sliderValue.innerText = `${slider.value ?? 0}`;
+            sliderValue.classList.add('sliderValue');
+
+            item.appendChild(leading);
+            item.appendChild(sliderName);
+            item.appendChild(sliderValue);
+
+            display.appendChild(item);
+        })
+
+        this.container.appendChild(display);
+    }
+
+    dataDisplayUpdate(angle) {
+        const targetSlider = this.activeSlider.getAttribute('data-slider');
+        const targetDisplay = document.querySelector(`li[data-slider="${targetSlider}"] .sliderValue`);
+
+        const currentSlider = this.sliders[targetSlider];
+        const rangeCurrentSlider = currentSlider.max - currentSlider.min;
+
+        let currentValue = angle / this.tau * rangeCurrentSlider;
+
+        const steps = Math.round(currentValue / currentSlider.step);
+
+        currentValue = currentSlider.min + steps * currentSlider.step;
+
+        targetDisplay.innerText = currentValue;
     }
 
     // Helper functions

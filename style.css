@@ -40,17 +40,17 @@ h1 {
 }
 
 .data-display li span:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 60px;
+}
+
+.data-display li span:nth-child(2) {
     border-radius: 5px;
     height: 20px;
     width: 20px;
 }
 
-.data-display li span:nth-child(2) {
-    margin: 0 1rem;
-}
-
 .data-display li span:last-child {
-    font-size: 1.25rem;
-    font-weight: bold;
-    min-width: 60px;
+    margin: 0 1rem;
 }

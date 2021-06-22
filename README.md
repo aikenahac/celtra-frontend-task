@@ -1,6 +1,6 @@
 # Celtra frontend task
 
-This is the repository for a frontend task I was by Celtra, as part of the interview process.
+This is the repository for a frontend task I was given by Celtra, as part of the interview process.
 
 ## Received instructions
 

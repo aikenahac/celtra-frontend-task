@@ -148,20 +148,20 @@ class Slider {
             const item = document.createElement('li');
             item.setAttribute('data-slider', index);
 
-            const leading = document.createElement('span');
-            leading.style.backgroundColor = slider.color ?? '#EDCDCE';
-            leading.classList.add('leading');
-
-            const sliderName = document.createElement('span');
-            sliderName.innerText = slider.sliderName ?? 'Unnamed slider';
-
             const sliderValue = document.createElement('span');
             sliderValue.innerText = `${slider.value ?? 0}`;
             sliderValue.classList.add('sliderValue');
 
-            item.appendChild(leading);
-            item.appendChild(sliderName);
+            const sliderColor = document.createElement('span');
+            sliderColor.style.backgroundColor = slider.color ?? '#EDCDCE';
+            sliderColor.classList.add('sliderColor');
+
+            const sliderName = document.createElement('span');
+            sliderName.innerText = slider.sliderName ?? 'Unnamed slider';
+
             item.appendChild(sliderValue);
+            item.appendChild(sliderColor);
+            item.appendChild(sliderName);
 
             display.appendChild(item);
         })

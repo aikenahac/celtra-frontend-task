@@ -11,6 +11,11 @@ body {
     max-width: 900px;
 }
 
+h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
 #slider {
     display: flex;
     flex-wrap: wrap;
@@ -26,7 +31,26 @@ body {
     margin-bottom: 1rem;
 }
 
+.data-display h2 {
+    margin-bottom: 1rem;
+}
+
 .data-display li span {
     display: inline-block;
 }
 
+.data-display li span:first-child {
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+}
+
+.data-display li span:nth-child(2) {
+    margin: 0 1rem;
+}
+
+.data-display li span:last-child {
+    font-size: 1.25rem;
+    font-weight: bold;
+    min-width: 60px;
+}

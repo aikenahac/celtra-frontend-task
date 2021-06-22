@@ -1,5 +1,3 @@
-// TODO: Create methods for displaying slider names and values in text
-
 class Slider {
 
     constructor({DOMselector, sliders}) {
@@ -136,25 +134,6 @@ class Slider {
         group.appendChild(pathSVG);
     }
 
-    activeSliderRedraw(rmtc) {
-        const activePath = this.activeSlider.querySelector('.singleSliderPathActive');
-        const radius = this.activeSlider.getAttribute('rad');
-        const currentAngle = this.mouseAngleCalc(rmtc);
-
-        activePath.setAttribute(
-            'd',
-            this.arcDescribe(this.centerX, this.centerY, radius, 0, this.radToDeg(currentAngle))
-        );
-
-        const spot = this.activeSlider.querySelector('.spotSlider');
-        const spotCenter = this.spotCenterCalc(currentAngle, radius);
-
-        spot.setAttribute('cx', spotCenter.x);
-        spot.setAttribute('cy', spotCenter.y);
-
-        this.dataDisplayUpdate(currentAngle);
-    }
-
     dataDisplayDraw() {
 
         const display =  document.createElement('ul');
@@ -188,6 +167,25 @@ class Slider {
         })
 
         this.container.appendChild(display);
+    }
+
+    activeSliderRedraw(rmtc) {
+        const activePath = this.activeSlider.querySelector('.singleSliderPathActive');
+        const radius = this.activeSlider.getAttribute('rad');
+        const currentAngle = this.mouseAngleCalc(rmtc);
+
+        activePath.setAttribute(
+            'd',
+            this.arcDescribe(this.centerX, this.centerY, radius, 0, this.radToDeg(currentAngle))
+        );
+
+        const spot = this.activeSlider.querySelector('.spotSlider');
+        const spotCenter = this.spotCenterCalc(currentAngle, radius);
+
+        spot.setAttribute('cx', spotCenter.x);
+        spot.setAttribute('cy', spotCenter.y);
+
+        this.dataDisplayUpdate(currentAngle);
     }
 
     dataDisplayUpdate(angle) {
